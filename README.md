@@ -6,8 +6,8 @@ Iugu integration with [Catarse](http://github.com/danielweinmann/catarse) crowdf
 
 Add this lines to your Catarse application's Gemfile under the payments section:
 
-    gem 'catarse_stripe', :git => 'git://github.com/mrodrigues/catarse_iugu.git'
-    gem 'iugu', :git => 'https://github.com/iugu/iugu-ruby.git'
+    gem 'catarse_iugu'
+    gem 'iugu'
 
 And then execute:
 
