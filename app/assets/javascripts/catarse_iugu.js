@@ -1,5 +1,5 @@
 $(window).bind("load", function() {
-  Iugu.setAccountID("671e7c16-950b-4de4-9b29-2f441d66cd2c");
+  Iugu.setAccountID(IUGU_ACCOUNT_ID);
   Iugu.setTestMode(true);
   Iugu.setup();
 });
@@ -12,7 +12,6 @@ jQuery(function($) {
 
     function tokenResponseHandler(data) {
       if (data.errors) {
-        // console.log(data.errors);
         alert("Erro salvando cartão: " + JSON.stringify(data.errors));
       } else {
         $("#token").val( data.id );
