@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    catarse_iugu (0.1)
+    catarse_iugu (0.1.1)
       iugu
       rails (~> 4.1)
       slim-rails
