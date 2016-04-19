@@ -153,14 +153,8 @@
     background-position: 0px -66px;
 }
 
-/* Non Credit Card Form - Token Area */
-.token-area {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border: 1px dotted #CCC;
-    display: block;
-    padding: 20px;
-    background: #EFEFEF;
+.error {
+  border: 1px solid red !important;
 }
 
 /* Loader */

@@ -26,12 +26,12 @@ class CatarseIugu::IuguController < ApplicationController
         PaymentEngines.create_payment_notification contribution_id: contribution.id, payment_id: payment.id
         redirect_to main_app.project_contribution_path(contribution.project, contribution)
       else
-        flash[:error] = "Houve um erro ao realizar o pagamento."
+        flash[:notice] = "Houve um erro ao realizar o pagamento: #{charge.message}"
         redirect_to main_app.new_project_contribution_path(contribution.project)
       end
     rescue Exception => e
       Rails.logger.info "-----> #{e.inspect}"
-      flash[:failure] = e.message
+      flash[:notice] = "Houve um erro ao realizar o pagamento: #{e.message}"
       return redirect_to main_app.new_project_contribution_path(contribution.project)
     end
   end
