@@ -4,7 +4,9 @@ javascript:
 = javascript_include_tag 'catarse_iugu'
 = stylesheet_link_tag 'catarse_iugu'
 
-form#catarse_iugu_form action=(pay_iugu_path(@contribution)) method="POST"
+#catarse-iugu-loader.loader
+
+form#catarse_iugu_form.hidden action=(pay_iugu_path(@contribution)) method="POST"
   .usable-creditcard-form
     .wrapper
       .input-group.nmb_a
@@ -23,8 +25,6 @@ form#catarse_iugu_form action=(pay_iugu_path(@contribution)) method="POST"
       img alt="Visa, Master, Diners. Amex" border="0" src="http://storage.pupui.com.br/9CA0F40E971643D1B7C8DE46BBC18396/assets/cc-icons.e8f4c6b4db3cc0869fa93ad535acbfe7.png" /
       a.iugu-btn href="http://iugu.com" tabindex="-1" 
         img alt=("Pagamentos por Iugu") border="0" src="http://storage.pupui.com.br/9CA0F40E971643D1B7C8DE46BBC18396/assets/payments-by-iugu.1df7caaf6958f1b5774579fa807b5e7f.png" /
-  .token-area
-    label for="token"  Token do Cartão de Crédito - Enviar para seu Servidor
-    input#token name="token" readonly="true" size="64" style="text-align:center" type="text" value="" /
+  input#token name="token" type="hidden" value="" /
   div
-    button type="submit"  Salvar
+    button type="submit" Enviar

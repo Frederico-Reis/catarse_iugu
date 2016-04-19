@@ -2,6 +2,8 @@ $(window).bind("load", function() {
   Iugu.setAccountID(IUGU_ACCOUNT_ID);
   Iugu.setTestMode(true);
   Iugu.setup();
+  $('#catarse-iugu-loader').addClass('hidden');
+  $('#catarse_iugu_form').removeClass('hidden');
 });
 
 jQuery(function($) {
