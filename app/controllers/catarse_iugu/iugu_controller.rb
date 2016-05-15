@@ -8,8 +8,9 @@ class CatarseIugu::IuguController < ApplicationController
   def pay
     begin
       payment.save!
-      charge = Iugu::Charge.create(
-        "token" => params[:token],
+      bank_slip = !params[:bank_slip].blank?
+     
+      charge_params = {
         "email" => contribution.payer_email,
         "items" => [
           {
@@ -18,7 +19,19 @@ class CatarseIugu::IuguController < ApplicationController
             "price_cents" => contribution.price_in_cents
           }
         ]
-      )
+      }
+
+      if bank_slip
+        charge_params.merge!("method" => 'bank_slip')
+      else
+        charge_params.merge!("token" => params[:token])
+      end
+      
+      charge = Iugu::Charge.create(charge_params)
+
+      if bank_slip
+        return redirect_to charge.url
+      end
 
       if charge.success
         flash[:notice] = "Contribuição feita com sucesso!"
