@@ -30,13 +30,14 @@ class CatarseIugu::IuguController < ApplicationController
       charge = Iugu::Charge.create(charge_params)
 
       if bank_slip
+        PaymentEngines.create_payment_notification contribution_id: contribution.id, payment_id: payment.id
         return redirect_to charge.url
       end
 
       if charge.success
         flash[:notice] = "Contribuição feita com sucesso!"
         payment.pay!
-        PaymentEngines.create_payment_notification contribution_id: contribution.id, payment_id: payment.id
+        PaymentEngines.create_payment_notification contribution_id: contribution.id, payment_id: payment.payment_id
         redirect_to main_app.project_contribution_path(contribution.project, contribution)
       else
         flash[:notice] = "Houve um erro ao realizar o pagamento: #{charge.message}"
