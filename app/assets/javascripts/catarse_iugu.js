@@ -4,6 +4,7 @@ $.getScript( "https://js.iugu.com/v2", function( data, textStatus, jqxhr ) {
   Iugu.setup();
   $('#catarse-iugu-loader').addClass('hidden');
   $('#catarse_iugu_form').removeClass('hidden');
+  $('#catarse_iugu_form_slip').removeClass('hidden');
 });
 
 

@@ -31,6 +31,7 @@ class CatarseIugu::IuguController < ApplicationController
 
       if bank_slip
         PaymentEngines.create_payment_notification contribution_id: contribution.id, payment_id: payment.id
+        payment.update_attribute(:key, charge.invoice_id)
         return redirect_to charge.url
       end
 
