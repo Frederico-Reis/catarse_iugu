@@ -30,7 +30,6 @@ class CatarseIugu::IuguController < ApplicationController
       charge = Iugu::Charge.create(charge_params)
 
       if bank_slip
-        PaymentEngines.create_payment_notification contribution_id: contribution.id, payment_id: payment.id
         payment.update_attribute(:key, charge.invoice_id)
         return redirect_to charge.url
       end
@@ -51,6 +50,18 @@ class CatarseIugu::IuguController < ApplicationController
     end
   end
 
+  def invoice_hook
+    payment = Payment.find_by_key(params["data"]["id"])
+    if payment && params["data"]["status"] == "paid"
+      contribution = payment.contribution
+      PaymentEngines.create_payment_notification contribution_id: contribution.id, payment_id: payment.id
+      payment.pay!
+      render text: 'success'
+    else
+      render text: 'fail'
+    end
+  end
+
   private
 
     def contribution
@@ -65,4 +76,6 @@ class CatarseIugu::IuguController < ApplicationController
         payment_method: 'Iugu'
       )
     end
+
+
 end

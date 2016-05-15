@@ -6,5 +6,8 @@ CatarseIugu::Engine.routes.draw do
       get  :success
       get  :cancel
     end
+    collection do
+      post :invoice_hook
+    end
   end
 end
