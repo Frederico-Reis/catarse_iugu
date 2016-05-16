@@ -6,7 +6,6 @@ javascript:
 #catarse-iugu-loader.loader
 
 ul#iugu-error-messages
-h1 Pagamento com cartão de credito
 form#catarse_iugu_form.hidden action=(pay_iugu_path(@contribution)) method="POST"
   .usable-creditcard-form
     .wrapper
@@ -29,7 +28,7 @@ form#catarse_iugu_form.hidden action=(pay_iugu_path(@contribution)) method="POST
   input#token name="token" type="hidden" value="" /
   div
     button type="submit" Enviar
-h1 Pagamento com boleto
+br
 form#catarse_iugu_form_slip.hidden action=(pay_iugu_path(@contribution)) method="POST"
   input type="hidden" value="true" name="bank_slip"
   div

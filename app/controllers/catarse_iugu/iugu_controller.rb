@@ -12,6 +12,9 @@ class CatarseIugu::IuguController < ApplicationController
      
       charge_params = {
         "email" => contribution.payer_email,
+        "payer" => {
+          "name" => contribution.payer_name
+        },
         "items" => [
           {
             "description" => contribution.project.name,
