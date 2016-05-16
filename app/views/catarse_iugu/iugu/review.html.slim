@@ -7,7 +7,7 @@ javascript:
 
 ul#iugu-error-messages
 div
-  h1 PAGAMENTO COM CARTÃO DE CREDITO
+  h1 DOAÇÃO COM CARTÃO DE CREDITO
 br
 form#catarse_iugu_form.hidden action=(pay_iugu_path(@contribution)) method="POST"
   .usable-creditcard-form
@@ -20,12 +20,12 @@ form#catarse_iugu_form.hidden action=(pay_iugu_path(@contribution)) method="POST
         input.credit_card_cvv autocomplete="off" data-iugu="verification_value" placeholder="CVV" type="text" value="" /
       .input-group.nmb_c
         .icon.ccic-name
-        input.credit_card_name data-iugu="full_name" placeholder=("Titular do Cartão") type="text" value="" /
+        input.credit_card_name data-iugu="full_name" placeholder=("Nome Impresso no Cartão") type="text" value="" /
       .input-group.nmb_d
         .icon.ccic-exp
         input.credit_card_expiration autocomplete="off" data-iugu="expiration" placeholder="MM/AA" type="text" value="" /
     .footer
-      img alt="Visa, Master, Diners. Amex" border="0" src="http://storage.pupui.com.br/9CA0F40E971643D1B7C8DE46BBC18396/assets/cc-icons.e8f4c6b4db3cc0869fa93ad535acbfe7.png" /
+      img alt="Visa, Master, Diners, Amex" border="0" src="http://storage.pupui.com.br/9CA0F40E971643D1B7C8DE46BBC18396/assets/cc-icons.e8f4c6b4db3cc0869fa93ad535acbfe7.png" /
       a.iugu-btn href="http://iugu.com" tabindex="-1" 
         img alt=("Pagamentos por Iugu") border="0" src="http://storage.pupui.com.br/9CA0F40E971643D1B7C8DE46BBC18396/assets/payments-by-iugu.1df7caaf6958f1b5774579fa807b5e7f.png" /
   input#token name="token" type="hidden" value="" /
@@ -33,9 +33,9 @@ form#catarse_iugu_form.hidden action=(pay_iugu_path(@contribution)) method="POST
     button type="submit" Enviar
 br
 div
-  h1 PAGAMENTO COM BOLETO
+  h1 DOAÇÃO COM BOLETO
 br
 form#catarse_iugu_form_slip.hidden action=(pay_iugu_path(@contribution)) method="POST"
   input type="hidden" value="true" name="bank_slip"
   div
-    button type="submit" Pagar com boleto
+    button type="submit" Doar com boleto
