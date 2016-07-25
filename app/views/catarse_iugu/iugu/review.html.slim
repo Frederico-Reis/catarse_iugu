@@ -30,7 +30,7 @@ form#catarse_iugu_form.hidden action=(pay_iugu_path(@contribution)) method="POST
         img alt=("Pagamentos por Iugu") border="0" src="http://storage.pupui.com.br/9CA0F40E971643D1B7C8DE46BBC18396/assets/payments-by-iugu.1df7caaf6958f1b5774579fa807b5e7f.png" /
   input#token name="token" type="hidden" value="" /
   div
-    button type="submit" Enviar
+    button type="submit" Doar
 br
 div
   h1 DOAÇÃO COM BOLETO
@@ -38,4 +38,4 @@ br
 form#catarse_iugu_form_slip.hidden action=(pay_iugu_path(@contribution)) method="POST"
   input type="hidden" value="true" name="bank_slip"
   div
-    button type="submit" Doar com boleto
+    button type="submit" Doar
