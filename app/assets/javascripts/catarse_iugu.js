@@ -1,6 +1,6 @@
 $.getScript( "https://js.iugu.com/v2", function( data, textStatus, jqxhr ) {
   Iugu.setAccountID(IUGU_ACCOUNT_ID);
-  Iugu.setTestMode(true);
+//  Iugu.setTestMode(true);
   Iugu.setup();
   $('#catarse-iugu-loader').addClass('hidden');
   $('#catarse_iugu_form').removeClass('hidden');
