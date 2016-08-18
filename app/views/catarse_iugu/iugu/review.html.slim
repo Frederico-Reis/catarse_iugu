@@ -6,9 +6,17 @@ javascript:
 #catarse-iugu-loader.loader
 
 ul#iugu-error-messages
+
+
+
 div
-  h1 DOAÇÃO COM CARTÃO DE CREDITO
+   h2 <center><b>DOAÇÃO COM CARTÃO DE CREDITO</b></center>
 br
+br
+
+
+
+
 form#catarse_iugu_form.hidden action=(pay_iugu_path(@contribution)) method="POST"
   .usable-creditcard-form
     .wrapper
@@ -29,13 +37,22 @@ form#catarse_iugu_form.hidden action=(pay_iugu_path(@contribution)) method="POST
       a.iugu-btn href="http://iugu.com" tabindex="-1" 
         img alt=("Pagamentos por Iugu") border="0" src="http://storage.pupui.com.br/9CA0F40E971643D1B7C8DE46BBC18396/assets/payments-by-iugu.1df7caaf6958f1b5774579fa807b5e7f.png" /
   input#token name="token" type="hidden" value="" /
-  div
-    button type="submit" Doar
+  div.centro
+    button.btn2.btn-large2 type="submit" Doar 
+
 br
+br
+br
+br
+br
+
 div
-  h1 DOAÇÃO COM BOLETO
+  h2 <center><b> DOAÇÃO COM BOLETO</b></center>
+br
 br
 form#catarse_iugu_form_slip.hidden action=(pay_iugu_path(@contribution)) method="POST"
   input type="hidden" value="true" name="bank_slip"
-  div
-    button type="submit" Doar
+
+  <center> <img src="/images/boleto.png" style="height:120px;"> </center>
+  div.centro2
+    button.btn2.btn-large2 type="submit" Gerar boleto
