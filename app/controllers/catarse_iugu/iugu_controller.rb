@@ -1,5 +1,6 @@
 class CatarseIugu::IuguController < ApplicationController
   layout false
+  helper_method :get_full_address
 
   def review
     contribution
@@ -25,7 +26,18 @@ class CatarseIugu::IuguController < ApplicationController
       }
 
       if bank_slip
+        payer_params = { 
+          "cpf_cnpj" => contribution.payer_document,
+          "address" => {
+            "number" => contribution.address_number,
+            "zip_code" => contribution.address_zip_code,
+            "district" => get_full_address(contribution),
+            "complement" => contribution.address_complement
+          }
+        }
+
         charge_params.merge!("method" => 'bank_slip')
+        charge_params["payer"].merge!(payer_params)
       else
         charge_params.merge!("token" => params[:token])
       end
@@ -66,6 +78,13 @@ class CatarseIugu::IuguController < ApplicationController
   end
 
   private
+
+    def get_full_address(contribution)
+      city_with_state = "#{contribution.address_city} #{contribution.address_state}"
+      
+      "#{contribution.address_street} #{contribution.address_number}, " \
+      "#{contribution.address_neighbourhood}, #{city_with_state}" 
+    end
 
     def contribution
       @contribution ||= PaymentEngines.find_contribution(params[:id])
