@@ -1,6 +1,6 @@
 # CatarseIugu v. 0.1
 
-Iugu integration with [Catarse](http://github.com/danielweinmann/catarse) crowdfunding platform. 
+Integração do gateway de pagaentos da https://iugu.com com a versão Ryby on Rails do [Catarse](http://github.com/danielweinmann/catarse) 
 
 ## Installation
 
